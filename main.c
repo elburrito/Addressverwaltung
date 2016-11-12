@@ -15,6 +15,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
+#include <windows.h>
 #include "Address.h"
 
 /*
@@ -45,14 +46,17 @@ int main(int argc, char** argv) {
                 addNewAddress();
                 break;
             case 'L':
-                printAddress(startPointer);
+                printAddressConsole();
                 break;
-                /*case 'R':
-                    readAddressFile();
-                    break;
-                case 'S':
-                    saveAddressFile();
-                    break;
+            case 'S':
+                printAddressFile();
+                break;
+            case 'R':
+                readAddressFile();
+                break;
+            case 'Q':
+                quit();               
+                /*
                 case '1':
                     sortByName();
                 case '2':
@@ -61,15 +65,11 @@ int main(int argc, char** argv) {
                 case '3':
                     sortByCity();
                     break;
-                case 'Q':
-                    quit();
-                    break; */
-                         
+                 */
+
         }
 
     } while (c != 'Q');
-    
+
     return (EXIT_SUCCESS);
 }
-
-

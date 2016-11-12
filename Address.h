@@ -31,20 +31,22 @@ typedef struct Address_{
 
 
 /*function adds new Address and returns a pointer to struct Address_ (currently used in printAddress function)*/
-AddressPtr_t addNewAddress(void);
+void addNewAddress();
 
-void printAddress (AddressPtr_t printPointer);
+void printAddressConsole(); // AddressPtr_t printPointer
 
-/*readAddressFile();
+void printAddressFile();
 
-saveAddressFile();
+void readAddressFile();
 
+int quit();
+/*
 sortByName();
 
 sortByStreet();
 
 sortByCity();
 
-quit(); */
+ */
 
 #endif
