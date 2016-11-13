@@ -15,7 +15,6 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
-#include <windows.h>
 #include "Address.h"
 
 /*
@@ -23,6 +22,7 @@
  */
 
 AddressPtr_t startPointer = NULL; //pointer auf struct Address_t
+int total;
 
 int main(int argc, char** argv) {
     char c;
@@ -36,6 +36,7 @@ int main(int argc, char** argv) {
         printf("1 --> Sort list by name\n");
         printf("2 --> Sort list by street\n");
         printf("3 --> Sort list by city\n");
+        printf("4 --> Sort list by ZIP\n");
         printf("Q --> Quit\n\n");
 
         while (!isalnum(c = getchar())); // Solange einlesen bis Zahl oder Buchstabe
@@ -55,16 +56,23 @@ int main(int argc, char** argv) {
                 readAddressFile();
                 break;
             case 'Q':
-                quit();               
-                /*
-                case '1':
-                    sortByName();
-                case '2':
-                    sortByStreet();
-                    break;
-                case '3':
-                    sortByCity();
-                    break;
+                quit();
+                break;
+            case '1':
+                sortByFirstName(startPointer);
+                break;
+            case '4':
+                sortByZip(startPointer);
+                break;
+                /* 
+                
+
+                    case '2':
+                        sortByStreet();
+                        break;
+                    case '3':
+                        sortByCity();
+                        break;
                  */
 
         }

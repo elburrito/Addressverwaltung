@@ -17,6 +17,8 @@
 
 typedef struct Address_* AddressPtr_t;
 AddressPtr_t startPointer;
+
+int total;
  
 typedef struct Address_{
     char firstname[MAX];
@@ -25,7 +27,6 @@ typedef struct Address_{
     int streetNumber;
     int zip;            // könnte man hier int:5 machen? 
     char city[MAX];
-    int index;          // index for sorting functions
     AddressPtr_t next;  //Pointer auf nächste Addresse
 } Address_t; 
 
@@ -40,12 +41,30 @@ void printAddressFile();
 void readAddressFile();
 
 int quit();
-/*
-sortByName();
+
+void sortByZip(AddressPtr_t start);
+
+void sortByFirstName(AddressPtr_t start);
+
+void swapAll(AddressPtr_t a, AddressPtr_t b);
+
+// char getCriteria();
+
+
+
+/* void sortByName();
+
+int name_comparator(const void* v1, const void* v2);
+
 
 sortByStreet();
 
 sortByCity();
+
+ * 
+ * deleteAddresses(); --> als Übung zum free();
+ * 
+ * 
 
  */
 

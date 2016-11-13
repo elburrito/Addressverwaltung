@@ -14,7 +14,6 @@
  */
 
 int quit(){
-    //printf("You quit the programm");
     MessageBox(0,"DO YOU LIKE NATURE?", "------------xXXX YOU QUIT XXXx----------", MB_YESNO);
     return(EXIT_SUCCESS);
 }
@@ -45,11 +44,11 @@ void addNewAddress() {
 
         tempPtr->next = startPointer;
         startPointer = tempPtr;
+        total++;
     }
 }
 
-/* @param startPointer, pointing to the first element of the linked list*/
-void printAddressConsole () {
+void printAddressConsole(){
     
     AddressPtr_t printConsPointer = startPointer;
 
