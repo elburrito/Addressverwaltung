@@ -44,7 +44,6 @@ void addNewAddress() {
 
         tempPtr->next = startPointer;
         startPointer = tempPtr;
-        total++;
     }
 }
 

@@ -7,12 +7,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #include "Address.h"
 
-/* TODO: make it the same function for Ints and for Strings by turning zip into char*/
-
 /* @param startPointer*/
-void sortByZip(AddressPtr_t start) {
+void sortList(AddressPtr_t start, char criteria){
+    char currentField = criteria;
+
     int swapped = 0;
     AddressPtr_t ptr1;
     AddressPtr_t ptr2 = NULL;
@@ -24,37 +25,20 @@ void sortByZip(AddressPtr_t start) {
     do {
         swapped = 0;
         ptr1 = start;
+        int rc = 0;
 
         while (ptr1->next != ptr2) {
-            if (ptr1->zip > ptr1->next->zip) {
-                swapAll(ptr1, ptr1->next);
-                swapped = 1;
+            switch (currentField) {
+                case '1': rc = strcmp(ptr1->firstname, ptr1->next->firstname);
+                    break;
+                case '2': rc = strcmp(ptr1->streetName, ptr1->next->streetName);
+                    break;
+                case '3': rc = strcmp(ptr1->city, ptr1->next->city);
+                    break;
+                case '4': rc = ((ptr1->zip) > (ptr1->next->zip));       
+                    break;
             }
-            ptr1 = ptr1->next;
-        }
-        ptr2 = ptr1;
-    } while (swapped);
-}
-
-/* @param startPointer*/
-
-/*TODO: substitute name by the field chosen by user criteria*/
-void sortByFirstName(AddressPtr_t start) {
-
-    int swapped = 0;
-    AddressPtr_t ptr1;
-    AddressPtr_t ptr2 = NULL;
-
-    if (ptr1 == NULL) {
-        return;
-    }
-
-    do {
-        swapped = 0;
-        ptr1 = start;
-
-        while (ptr1->next != ptr2) {
-            if ((strcmp(ptr1->firstname, ptr1->next->firstname)) > 0) {
+            if (rc > 0) {
                 swapAll(ptr1, ptr1->next);
                 swapped = 1;
             }
@@ -89,24 +73,4 @@ void swapAll(AddressPtr_t a, AddressPtr_t b) {
     strcpy(buffer, a->city);
     strcpy(a->city, b->city);
     strcpy(b->city, buffer);
-
 }
-
-/*char getCriteria() {
-    char field;
-    do {
-        printf("By which criteria do you want to sort?\n");
-        printf("F --> First name\n");
-        printf("L --> Last name\n");
-        printf("S --> Street name\n");
-        // printf("N --> Street number\n");
-        printf("Z --> Zip code\n");
-        printf("C --> City \n");
-        printf("Q --> Quit programm \n");
-
-        while (!isalnum(field = getchar())); // Solange einlesen bis Zahl oder Buchstabe
-        field = toupper(field); // Make Uppercase 'c' --> 'C'      
-
-    } while (field != 'Q');
-    return field;
-} */

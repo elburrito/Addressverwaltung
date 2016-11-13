@@ -4,7 +4,7 @@ StrasseK
 111
 1
 Bern
-Giuditta
+Giuditto
 Rachele
 StrasseG
 222
@@ -22,3 +22,9 @@ Baguette
 444
 4
 Paris
+Giuditto
+Rachelo
+Dorfmattweg
+777
+7
+Ruefenacht

@@ -17,8 +17,6 @@
 
 typedef struct Address_* AddressPtr_t;
 AddressPtr_t startPointer;
-
-int total;
  
 typedef struct Address_{
     char firstname[MAX];
@@ -42,30 +40,16 @@ void readAddressFile();
 
 int quit();
 
-void sortByZip(AddressPtr_t start);
-
-void sortByFirstName(AddressPtr_t start);
+void sortList(AddressPtr_t start, char criteria);
 
 void swapAll(AddressPtr_t a, AddressPtr_t b);
 
-// char getCriteria();
 
 
-
-/* void sortByName();
-
-int name_comparator(const void* v1, const void* v2);
-
-
-sortByStreet();
-
-sortByCity();
-
- * 
- * deleteAddresses(); --> als Übung zum free();
- * 
- * 
-
- */
+ 
+ /*
+  * 
+  * deleteAddresses(); --> als Übung zum free();
+  */
 
 #endif

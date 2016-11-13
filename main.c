@@ -18,11 +18,10 @@
 #include "Address.h"
 
 /*
- * 
+ * TODO: implement delete option to delete all addresses and free memory !!! 
  */
 
 AddressPtr_t startPointer = NULL; //pointer auf struct Address_t
-int total;
 
 int main(int argc, char** argv) {
     char c;
@@ -59,22 +58,17 @@ int main(int argc, char** argv) {
                 quit();
                 break;
             case '1':
-                sortByFirstName(startPointer);
+                sortList(startPointer, c);
+                break;
+            case '2':
+                sortList(startPointer, c);
+                break;
+            case '3':
+                sortList(startPointer, c);
                 break;
             case '4':
-                sortByZip(startPointer);
+                sortList(startPointer, c);
                 break;
-                /* 
-                
-
-                    case '2':
-                        sortByStreet();
-                        break;
-                    case '3':
-                        sortByCity();
-                        break;
-                 */
-
         }
 
     } while (c != 'Q');

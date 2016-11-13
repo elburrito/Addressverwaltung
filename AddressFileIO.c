@@ -29,7 +29,6 @@ void readAddressFile() {
 
         tempPtr->next = startPointer;
         startPointer = tempPtr;
-        total++;
     }
     fclose(fp);
 }
